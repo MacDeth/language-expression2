@@ -41,49 +41,125 @@
   #   'name': 'variable.other.expression2'
   # }
   {
-    'begin': '#\\['
-    'end': '\\]#'
-    'name': 'comment.block.number-sign.expression2'
+    'include': '#directive'
   }
   {
-    'match': '#.*'
-    'name': 'comment.line.number-sign.expression2'
+    'include': '#blockcomment'
   }
   {
-    'match': '0x[\\dA-F]+|0b[0-1]+|[0-9]+\\.?[0-9]*'
-    'name': 'constant.numeric.expression2'
+    'include': '#linecomment'
   }
   {
-    'match': '\\b[a-z#][\\w\\d_]*'
-    'patterns': [
-      {
-        'match': 'if|elseif|else|local|while|for|break|continue|switch|case|default|foreach|function|return|void|#include'
-        'name': 'keyword.control.expression2'
-      }
-    ]
-    # 'name': 'meta.keyword.function.expression2'
+    'include': '#listtypes'
   }
   {
-    'match': '\\b[A-Z][\\w\\d_]*'
-    'name': 'variable.other.expression2'
+    'include': '#numericconstants'
   }
   {
-    'match': '_(?:FILE_(?:UNKNOWN|OK|TIMEOUT)|PI|E|PHI|HUD_PRINT(?:CENTER|CONSOLE|NOTIFY|TALK)|TEXFILTER_(?:NONE|POINT|LINEAR|ANISOTROPIC))'
-    'name': 'constant.language.expression2'
+    'include': '#keywords+functions'
   }
   {
-    'match': '".*"'
-    'name': 'string.quoted.double.expression2'
-    'patterns': [
-      {
-        'match': '\\\\.'
-        'name': 'constant.character.escape.expression2'
-      }
-    ]
+    'include': '#variables'
   }
   {
-    'match': '<=|>=|==|<|>|\\!=|\\+|-|\\*|\\/|='
-    'name': 'keyword.operator.expression2'
+    'include': '#constants'
   }
-
+  {
+    'include': '#strings'
+  }
+  {
+    'include': '#operators'
+  }
 ]
+'repository':
+  'directive':
+    {
+      'match': '@([^ ]*) ?(.*)'
+      'name': 'entity.other.attribute-name.expression2'
+    }
+  'blockcomment':
+    {
+      'begin': '#\\['
+      'end': '\\]#'
+      'name': 'comment.block.number-sign.expression2'
+    }
+  'linecomment':
+    {
+      'match': '#.*'
+      'name': 'comment.line.number-sign.expression2'
+    }
+  'numericconstants':
+    {
+      'match': '0x[\\dA-F]+|0b[0-1]+|[0-9]+\\.?[0-9]*'
+      'name': 'constant.numeric.expression2'
+    }
+  'keywords+functions':
+    {
+      'match': '\\b[a-z#][\\w\\d_]*'
+      'name': 'support.function.expression2'
+      'patterns': [
+        {
+          'match': 'if|elseif|else|local|while|for|break|continue|switch|case|default|foreach|function|return|void|#include'
+          'name': 'keyword.control.expression2'
+        }
+      ]
+    }
+  'variables':
+    {
+      'match': '\\b[A-Z][\\w\\d_]*'
+      'name': 'variable.other.expression2'
+    }
+  'constants':
+    {
+      'match': '_(?:FILE_(?:UNKNOWN|OK|TIMEOUT)|PI|E|PHI|HUD_PRINT(?:CENTER|CONSOLE|NOTIFY|TALK)|TEXFILTER_(?:NONE|POINT|LINEAR|ANISOTROPIC))'
+      'name': 'constant.language.expression2'
+    }
+  'strings':
+    {
+      'begin': '"'
+      'beginCaptures':
+        '0':
+          'name': 'punctuation.definition.string.begin.expression2'
+      'end': '"'
+      'endCaptures':
+        '0':
+          'name': 'punctuation.definition.string.end.expression2'
+      'name': 'string.quoted.double.expression2'
+      'patterns': [
+        {
+          'include': 'punctuation.definition.string.begin.expression2'
+        }
+        {
+          'include': 'punctuation.definition.string.end.expression2'
+        }
+        {
+          'match': '\\\\.'
+          'name': 'constant.character.escape.expression2'
+        }
+      ]
+    }
+  'operators':
+    {
+      'match': '<=|>=|==|<|>|\\!=|\\+|-|\\*|\\/|='
+      'name': 'keyword.operator.expression2'
+    }
+  'listtypes':
+    {
+      'begin': '\\['
+      'beginCaptures':
+        '0':
+          'name': 'punctuation.definition.list.begin.expression2'
+      'end': '\\]'
+      'endCaptures':
+        '0':
+          'name': 'punctuation.definition.list.end.expression2'
+      'patterns': [
+        {
+          'include': '$self'
+        }
+        {
+          'match': '(?:\\s)*\\w+'
+          'name': 'storage.type.expression2'
+        }
+      ]
+    }
