@@ -1,0 +1,6 @@
+'.source.expression2':
+  'editor':
+    'commentStart': '# '
+    #'increaseIndentPattern': '(\\{\\s*))$'
+    #'decreaseIndentPattern': '^\\s*(\\}|\\))'
+    #'foldEndPattern': '^\\s*\}|^\\s*\\]|^\\s*\\)'

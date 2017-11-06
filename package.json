@@ -1,0 +1,22 @@
+{
+  "name": "language-expression2",
+  "main": "./lib/language-expression2",
+  "version": "0.0.1",
+  "description": "Expression 2 language support in Atom. A language from popular Garry's Mod addon, Wiremod.",
+  "keywords": [
+    "e2",
+    "expression2",
+    "expression 2",
+    "language",
+    "grammar"
+  ],
+  "repository": "https://github.com/macdeth/language-expression2",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/macdeth/language-expression2/issues"
+  },
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {}
+}

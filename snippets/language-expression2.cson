@@ -1,0 +1,8 @@
+'.source.expression2':
+  'first':
+    'prefix': 'first'
+    'body': """
+      if (first()) {
+        
+      }
+    """

@@ -1,0 +1,89 @@
+'scopeName': 'source.expression2'
+'name': 'Expression 2'
+'fileTypes': [
+  'txt'
+]
+'name': 'Expression 2'
+'patterns': [
+  # {
+  #   'begin': '@(?:name|inputs|outputs|persist|model|trigger|autoupdate)\\s+'
+  #   #'match': '([A-Z]+\w*)(?::(number|string|entity|vector|matrix))?'
+  #   'end': '[\\n\\r]+'
+  #   'name': 'entity.other.attribute-name.expression2'
+  # }
+  # {
+  #   'captures':
+  #     '1':
+  #       'name': 'keyword.control.expression2'
+  #     '2':
+  #       'name': 'support.type.expression2'
+  #     '3':
+  #       'name': 'entity.name.function.expression2'
+  #     '4':
+  #       'name': 'punctuation.definition.parameters.begin.expression2'
+  #     '5':
+  #       'name': 'variable.parameter.function.expression2'
+  #     '6':
+  #       'name': 'punctuation.definition.parameters.end.expression2'
+  #   'match': '(function)(?:\\s+((?:void|angle|complex|matrix(?:2|4)?|quaternion|ranger|normal|number|bone|array|gtable|string|vector(?:2|4)?|wirelink|entity|table)+\\s+)?([\\w_]\\w*)\\s*)?(\\()([^)]*)(\\))'
+  #   'name': 'meta.function.expression2'
+  # }
+  # {
+  #   'match': '([\\w_]\\w*)\\b(?=\\s*(?:[({"\']|\\[\\[))'
+  #   'name': 'support.function.any-method.expression2'
+  # }
+  # {
+  #   'match': '(?:else)?if|while|for(?:each)?|switch|case|default|else|break|continue|return|local|function'
+  #   'name': 'keyword.control.expression2'
+  # }
+  # {
+  #   'match': '[A-Z]\\w*'
+  #   'name': 'variable.other.expression2'
+  # }
+  {
+    'begin': '#\\['
+    'end': '\\]#'
+    'name': 'comment.block.number-sign.expression2'
+  }
+  {
+    'match': '#.*'
+    'name': 'comment.line.number-sign.expression2'
+  }
+  {
+    'match': '0x[\\dA-F]+|0b[0-1]+|[0-9]+\\.?[0-9]*'
+    'name': 'constant.numeric.expression2'
+  }
+  {
+    'match': '\\b[a-z#][\\w\\d_]*'
+    'patterns': [
+      {
+        'match': 'if|elseif|else|local|while|for|break|continue|switch|case|default|foreach|function|return|void|#include'
+        'name': 'keyword.control.expression2'
+      }
+    ]
+    # 'name': 'meta.keyword.function.expression2'
+  }
+  {
+    'match': '\\b[A-Z][\\w\\d_]*'
+    'name': 'variable.other.expression2'
+  }
+  {
+    'match': '_(?:FILE_(?:UNKNOWN|OK|TIMEOUT)|PI|E|PHI|HUD_PRINT(?:CENTER|CONSOLE|NOTIFY|TALK)|TEXFILTER_(?:NONE|POINT|LINEAR|ANISOTROPIC))'
+    'name': 'constant.language.expression2'
+  }
+  {
+    'match': '".*"'
+    'name': 'string.quoted.double.expression2'
+    'patterns': [
+      {
+        'match': '\\\\.'
+        'name': 'constant.character.escape.expression2'
+      }
+    ]
+  }
+  {
+    'match': '<=|>=|==|<|>|\\!=|\\+|-|\\*|\\/|='
+    'name': 'keyword.operator.expression2'
+  }
+
+]
